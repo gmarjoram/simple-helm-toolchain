@@ -209,8 +209,10 @@ services:
       name: ibm-secrets-manager-secrets-1
       region: ibm:ys1:eu-gb
       resource-group: Default
-      # Note service in Maire's account on dev:
-      instance-name: "Secrets Manager-8k"
+      # Note service -8k in Maire's account on dev:
+      instance-name: >
+        $env.smInstanceName ?
+          '{{smInstanceName}}' : 'Secrets Manager-8k'
 form:
   pipeline:
     parameters:
