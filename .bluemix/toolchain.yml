@@ -203,6 +203,14 @@ services:
         $env.env_id !== 'ibm:ys1:us-south' ? 'draservicebroker' : ''
   webide:
     service_id: orion
+  secrets-manager:
+    service_id: secretsmanager
+    parameters:
+      name: ibm-secrets-manager-secrets-1
+      region: ibm:ys1:eu-gb
+      resource-group: Default
+      # Note service in Maire's account on dev:
+      instance-name: "Secrets Manager-8k"
 form:
   pipeline:
     parameters:
@@ -214,7 +222,10 @@ form:
           '{{prodClusterNamespace}}' : 'prod'
       registry-region: '{{registryRegion}}'
       registry-namespace: '{{registryNamespace}}'
-      api-key: '{{apiKey}}'
+      # api-key: "{{apiKey}}"
+      api-key: >
+        $env.apiKey ?
+          '{{apiKey}}' : '{vault::ibm-secrets-manager-secrets-1.Default.helm-toolchain-20210629162041488}'
       prod-region: '{{prodRegion}}'
       prod-resource-group: '{{prodResourceGroup}}'
       prod-cluster-name: '{{prodClusterName}}'
