@@ -212,7 +212,7 @@ services:
       # Note service -8k in Maire's account on dev:
       instance-name: >
         $env.smInstanceName ?
-          '{{smInstanceName}}' : 'Secrets Manager-8k'
+          '{{smInstanceName}}' : 'sm-dev-lon-1'
 form:
   pipeline:
     parameters:
