@@ -227,7 +227,7 @@ form:
       # api-key: "{{apiKey}}"
       api-key: >
         $env.apiKey ?
-          '{{apiKey}}' : '{vault::ibm-secrets-manager-secrets-1.Default.helm-toolchain-20210629162041488}'
+          '{{apiKey}}' : '{vault::ibm-secrets-manager-secrets-1.Default.dev-api-key-1}'
       prod-region: '{{prodRegion}}'
       prod-resource-group: '{{prodResourceGroup}}'
       prod-cluster-name: '{{prodClusterName}}'
