@@ -227,7 +227,7 @@ form:
       # api-key: "{{apiKey}}"
       api-key: >
         $env.apiKey ?
-          '{{apiKey}}' : '{vault::dev-api-key-1}'
+          '{{apiKey}}' : '{vault::Default.dev-api-key-1}'
       prod-region: '{{prodRegion}}'
       prod-resource-group: '{{prodResourceGroup}}'
       prod-cluster-name: '{{prodClusterName}}'
